@@ -19,9 +19,12 @@
         public static CefVersionMismatchException RuntimeVersionApiHashMismatch(string actual, string expected)
         {
             return new CefVersionMismatchException(string.Format(CultureInfo.InvariantCulture,
-                "CEF runtime version mismatch: loaded version API hash \"{0}\", but supported \"{1}\".",
+                "CEF runtime version mismatch: loaded version API hash \"{0}\", but supported \"{1}\", aka version {2}.{3}.{4}",
                 actual,
-                expected
+                expected,
+                Xilium.CefGlue.Interop.libcef.CEF_VERSION_MAJOR,
+                Xilium.CefGlue.Interop.libcef.CHROME_VERSION_BUILD,
+                Xilium.CefGlue.Interop.libcef.CEF_REVISION
                 ));
         }
 
